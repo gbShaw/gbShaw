@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>打开黑匣——机器学习特征篇之从矩阵到向量到矩阵 - NeuroSpider</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Neurospider"><meta name="msapplication-TileImage" content="img/spider.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Neurospider"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。 通常，特征以向量形式存在于分析过程中，即一行或者一列数据即为一个特征向量。而相关矩阵显然不满足这个要求，因此我们需要对它进行转换。有时候我们需要计算overlapping的边用于展示或者验证，又需要将特征向量投射回原来的矩阵。"><meta property="og:type" content="blog"><meta property="og:title" content="打开黑匣——机器学习特征篇之从矩阵到向量到矩阵"><meta property="og:url" content="https://gh.neurospider.cn/post/20432/"><meta property="og:site_name" content="NeuroSpider"><meta property="og:description" content="对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。 通常，特征以向量形式存在于分析过程中，即一行或者一列数据即为一个特征向量。而相关矩阵显然不满足这个要求，因此我们需要对它进行转换。有时候我们需要计算overlapping的边用于展示或者验证，又需要将特征向量投射回原来的矩阵。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://gh.neurospider.cn/.cn//image-1.png"><meta property="og:image" content="https://gh.neurospider.cn/.cn//image-2.png"><meta property="article:published_time" content="2021-08-25T13:18:00.000Z"><meta property="article:modified_time" content="2022-05-04T03:10:39.784Z"><meta property="article:author" content="SuperSpider"><meta property="article:tag" content="认知神经"><meta property="article:tag" content="手搓数据"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/.cn//image-1.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gh.neurospider.cn/post/20432/"},"headline":"打开黑匣——机器学习特征篇之从矩阵到向量到矩阵","image":["https://gh.neurospider.cn/.cn//image-1.png","https://gh.neurospider.cn/.cn//image-2.png"],"datePublished":"2021-08-25T13:18:00.000Z","dateModified":"2022-05-04T03:10:39.784Z","author":{"@type":"Person","name":"SuperSpider"},"publisher":{"@type":"Organization","name":"NeuroSpider","logo":{"@type":"ImageObject","url":"https://gh.neurospider.cn/post/20432/img/spider.svg"}},"description":"对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。 通常，特征以向量形式存在于分析过程中，即一行或者一列数据即为一个特征向量。而相关矩阵显然不满足这个要求，因此我们需要对它进行转换。有时候我们需要计算overlapping的边用于展示或者验证，又需要将特征向量投射回原来的矩阵。"}</script><link rel="canonical" href="https://gh.neurospider.cn/post/20432/"><link rel="alternate" href="/atom.xml" title="NeuroSpider" type="application/atom+xml"><link rel="icon" href="/img/spider.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?8a05ae68beafa248466457b496a3d33e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/tools">Tools</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-08-25T13:18:00.000Z" title="2021/8/25 21:18:00">2021-08-25</time></span><span class="level-item"><a class="link-muted" href="/categories/cognitive/">认知神经</a><span> / </span><a class="link-muted" href="/categories/programming/">编程开发</a></span></div></div><h1 class="title is-3 is-size-4-mobile">打开黑匣——机器学习特征篇之从矩阵到向量到矩阵</h1><div class="content"><p>对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。</p>
+<p>通常，特征以向量形式存在于分析过程中，即一行或者一列数据即为一个特征向量。而相关矩阵显然不满足这个要求，因此我们需要对它进行转换。有时候我们需要<strong>计算overlapping的边用于展示或者验证</strong>，又需要将特征向量投射回原来的矩阵。</p>
+<span id="more"></span>
+
+<p>首先，功能链接矩阵是对称矩阵。这意味着它有一半的数据都是重复的。</p>
+<p><img src="/.cn//image-1.png"></p>
+<p>这种重复对于模型毫无意义，如果不处理它，可能会<strong>对复杂模型产生损害</strong>，这一点可以通过模拟数据验证。但是对于一些简单模型，例如CPM的一元线性模型，这种重复没有影响。</p>
+<p>因此，如果要使用复杂模型我们只取一半的数据，且不要对角线。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feature_mat = <span class="built_in">tril</span>(FC_mat,<span class="number">-1</span>);  <span class="comment">% FC_mat为功能链接矩阵</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/.cn//image-2.png"></p>
+<p>或者</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feature_vct = FC_mat(<span class="built_in">tril</span>(<span class="built_in">ones</span>(<span class="built_in">size</span>(FC_mat)),<span class="number">-1</span>)&gt;<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>考虑到我们可能会有<strong>还原有效特征</strong>的需求，最好将<strong>特征的索引保存</strong>下来，一并输入到计算过程中</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">feature_idx  = <span class="built_in">find</span>(<span class="built_in">tril</span>(<span class="built_in">ones</span>(<span class="built_in">size</span>(FC_mat)),<span class="number">-1</span>))</span><br><span class="line">feature_vct  = FC_mat(feature_idx)</span><br></pre></td></tr></table></figure>
+
+<p>机器学习的过程中，通常还需要进行特征的稀疏化</p>
+<p>例如，通过相关来筛选特征</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[r,p ] = corr(feature_vcts_train,behav_train)</span><br><span class="line">feature_vcts_train_sparse = feature_vcts_train(:,p&lt;<span class="number">0.05</span>);</span><br></pre></td></tr></table></figure>
+
+<p>此时，想要将稀疏的特征还原回原矩阵，将筛选同时应用与特征的索引即可</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feature_idx_train_sparse = feature_idx_train(p&lt;<span class="number">0.05</span>);</span><br></pre></td></tr></table></figure>
+
+<p>然后还原到原来的矩阵</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FC_mat_sparse = FC_mat*<span class="number">0</span>;</span><br><span class="line">FC_mat_sparse = feature_vcts_train(<span class="number">1</span>,feature_idx_train_sparse );</span><br></pre></td></tr></table></figure></div><div class="article-licensing box"><div class="licensing-title"><p>打开黑匣——机器学习特征篇之从矩阵到向量到矩阵</p><p><a href="https://gh.neurospider.cn/post/20432/">https://gh.neurospider.cn/post/20432/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>SuperSpider</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-08-25</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-05-04</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/">认知神经</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%89%8B%E6%90%93%E6%95%B0%E6%8D%AE/">手搓数据</a></div><div class="sharethis-inline-share-buttons"></div><script src="neurospider.cn" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/24628/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">怎么在线运行psychopy(个人服务器/pavlovia)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/32323/"><span class="level-item">关于全脑信号回归的争议</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left  order-1"><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a><p class="is-size-7"><span>&copy; 2022 SuperSpider</span>  </p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://s9.cnzz.com/z_stat.php?id=1280591999&amp;web_id=1280591999" async></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

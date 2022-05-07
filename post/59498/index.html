@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CPM-鲁棒的认知神经预测方法 - NeuroSpider</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Neurospider"><meta name="msapplication-TileImage" content="img/spider.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Neurospider"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。"><meta property="og:type" content="blog"><meta property="og:title" content="CPM-鲁棒的认知神经预测方法"><meta property="og:url" content="https://gh.neurospider.cn/post/59498/"><meta property="og:site_name" content="NeuroSpider"><meta property="og:description" content="CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://gh.neurospider.cn/img/og_image.png"><meta property="article:published_time" content="2021-05-07T08:07:00.000Z"><meta property="article:modified_time" content="2022-05-04T03:10:39.649Z"><meta property="article:author" content="SuperSpider"><meta property="article:tag" content="机器学习"><meta property="article:tag" content="CPM"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gh.neurospider.cn/post/59498/"},"headline":"CPM-鲁棒的认知神经预测方法","image":["https://gh.neurospider.cn/img/og_image.png"],"datePublished":"2021-05-07T08:07:00.000Z","dateModified":"2022-05-04T03:10:39.649Z","author":{"@type":"Person","name":"SuperSpider"},"publisher":{"@type":"Organization","name":"NeuroSpider","logo":{"@type":"ImageObject","url":"https://gh.neurospider.cn/post/59498/img/spider.svg"}},"description":"CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。"}</script><link rel="canonical" href="https://gh.neurospider.cn/post/59498/"><link rel="alternate" href="/atom.xml" title="NeuroSpider" type="application/atom+xml"><link rel="icon" href="/img/spider.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?8a05ae68beafa248466457b496a3d33e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/tools">Tools</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-05-07T08:07:00.000Z" title="2021/5/7 16:07:00">2021-05-07</time></span><span class="level-item"><a class="link-muted" href="/categories/cognitive/">认知神经</a><span> / </span><a class="link-muted" href="/categories/programming/">编程开发</a></span></div></div><h1 class="title is-3 is-size-4-mobile">CPM-鲁棒的认知神经预测方法</h1><div class="content"><p>CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。</p>
+<span id="more"></span>
+<p><strong>文章梳理</strong></p>
+<p>CPM的优势：prediction power和现有方法一样甚至更好，且对于不熟悉机器学习的研究者来说更为友好。</p>
+<p>CPM数据适用：functional connectivity based on fMRI or DTI or EEG</p>
+<p>公开数据库：可以用于验证模型的适用性</p>
+<p>使用CPM的文章：两篇nature neuroscience</p>
+<p><strong>最简单最流行的心脑关联方法：相关和回归模型</strong></p>
+<ul>
+<li>容易产生过拟合，缺乏普适性</li>
+</ul>
+<p><strong>可类比CPM的方法</strong></p>
+<ul>
+<li>HCP Netmats ……的多元预测和一元回归<ul>
+<li>针对rest fmri</li>
+<li>使用ICA和偏相关构建连接矩阵</li>
+<li>使用更复杂的方法建立心脑关联</li>
+<li>CPM的优势<ul>
+<li>简单</li>
+<li>容易解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持向量回归SVR<ul>
+<li>基于支持向量机分类框架，赋予全脑特征不同的权重来预测行为</li>
+<li>和CPM在性能上有差别</li>
+</ul>
+</li>
+<li>其它基于机器学习的方法<ul>
+<li>基于离散变量甚至二分变量，而不是基于连续变量<ul>
+<li>基于二分的需要有精确的分类，特别是针对边缘部分</li>
+<li>对健康群体的辨别力差</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>预测与相关</strong></p>
+<ul>
+<li>预测常常作为相关的一种表述</li>
+<li>严格来说，相关并不能称为预测<ul>
+<li>数据过拟合的问题<ul>
+<li>用相关为什么会过拟合？</li>
+</ul>
+</li>
+<li>缺少交叉验证导致推广性差</li>
+<li>在脑影像的众多特征中进行选择性的分析可能会导致完全错误的结论(kriegeskorte2009)</li>
+</ul>
+</li>
+</ul>
+<p><strong>CPM的功能</strong></p>
+<ul>
+<li>通过连接矩阵和行为指标建立模型</li>
+<li>选择特征而非用全脑特征</li>
+<li>对预测力显著性进行置换检验</li>
+<li>结果可视化</li>
+<li>交叉验证</li>
+</ul>
+<p><strong>CPM的使用要求</strong></p>
+<ul>
+<li>功能连接矩阵<ul>
+<li>连续数据，且代表连接强度</li>
+</ul>
+</li>
+<li>辨别力较大的行为指标</li>
+</ul>
+<p><strong>CPM的优势</strong></p>
+<ul>
+<li>线性运算<ul>
+<li>更快速，更简单，对特征权重更容易解释</li>
+</ul>
+</li>
+<li>在~45000个功能连接中提取最好的一些特征<ul>
+<li>提高预测力</li>
+</ul>
+</li>
+<li>交叉验证<ul>
+<li>控制基于全脑分析的假阳性结果</li>
+<li>替换传统的多重比较校正</li>
+</ul>
+</li>
+</ul>
+<p><strong>CPM的局限</strong></p>
+<ul>
+<li>使用简单的线性模型，对于复杂、非线性的功能链接与行为的关联的拟合不是最好的</li>
+<li>模型预测出的结果的变异小于真实结果的变异<ul>
+<li>对行为指标两端的预测有偏差</li>
+</ul>
+</li>
+<li>预测准确率低于SVR或多变量的方法<ul>
+<li>近期研究表示，结合多种方法可能更好</li>
+</ul>
+</li>
+</ul>
+<p><strong>CPM的注意事项</strong></p>
+<ul>
+<li>头动不应与行为指标相关<ul>
+<li>剔除头动过大被试</li>
+</ul>
+</li>
+<li>年龄、性别等等混淆因素应当使用偏相关排除</li>
+<li>二分行为变量不适用于CPM</li>
+<li>应该排除掉</li>
+</ul>
+<p><strong>CPM的</strong>过程</p>
+<ul>
+<li>选择和行为相关显著的特征</li>
+<li>合并特征值建模</li>
+<li>交叉验证</li>
+<li>置换检验(如果是独立样本验证，则不需要置换检验)</li>
+</ul>
+<p><strong>CPM结</strong>果可视化</p>
+<ol>
+<li>载入节点定义文件<ol>
+<li>节点nift文件或者节点MNI列表txt</li>
+</ol>
+</li>
+<li>载入特征选择的二元矩阵(比如264*264) 可以用dlmwrite写入<ol>
+<li>需要对称矩阵，三角矩阵不可用 –&gt;测试可用</li>
+</ol>
+</li>
+<li>根据需要绘制连接图</li>
+</ol>
+<p>参考文献</p>
+<p>Shen, X., Finn, E. S., Scheinost, D., Rosenberg, M. D., Chun, M. M., Papademetris, X., &amp; Constable, R. T. (2017). Using connectome-based predictive modeling to predict individual behavior from brain connectivity. <em>nature protocols</em>, <em>12</em>(3), 506-518.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>CPM-鲁棒的认知神经预测方法</p><p><a href="https://gh.neurospider.cn/post/59498/">https://gh.neurospider.cn/post/59498/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>SuperSpider</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-05-07</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-05-04</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="link-muted mr-2" rel="tag" href="/tags/CPM/">CPM</a></div><div class="sharethis-inline-share-buttons"></div><script src="neurospider.cn" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/17118/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">怎么画边绑定图/circos图?</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/40235/"><span class="level-item">关于E-prime的一些事</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left  order-1"><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a><p class="is-size-7"><span>&copy; 2022 SuperSpider</span>  </p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://s9.cnzz.com/z_stat.php?id=1280591999&amp;web_id=1280591999" async></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

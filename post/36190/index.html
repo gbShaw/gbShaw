@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！ - NeuroSpider</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Neurospider"><meta name="msapplication-TileImage" content="img/spider.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Neurospider"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。 因此，我们可以将mask映射到已有label的模板上，例如AAL、brodman等等。"><meta property="og:type" content="blog"><meta property="og:title" content="ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！"><meta property="og:url" content="https://gh.neurospider.cn/post/36190/"><meta property="og:site_name" content="NeuroSpider"><meta property="og:description" content="有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。 因此，我们可以将mask映射到已有label的模板上，例如AAL、brodman等等。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://gh.neurospider.cn/img/og_image.png"><meta property="article:published_time" content="2021-07-14T02:30:00.000Z"><meta property="article:modified_time" content="2022-05-04T03:10:39.684Z"><meta property="article:author" content="SuperSpider"><meta property="article:tag" content="matlab"><meta property="article:tag" content="认知神经"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gh.neurospider.cn/post/36190/"},"headline":"ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！","image":["https://gh.neurospider.cn/img/og_image.png"],"datePublished":"2021-07-14T02:30:00.000Z","dateModified":"2022-05-04T03:10:39.684Z","author":{"@type":"Person","name":"SuperSpider"},"publisher":{"@type":"Organization","name":"NeuroSpider","logo":{"@type":"ImageObject","url":"https://gh.neurospider.cn/post/36190/img/spider.svg"}},"description":"有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。 因此，我们可以将mask映射到已有label的模板上，例如AAL、brodman等等。"}</script><link rel="canonical" href="https://gh.neurospider.cn/post/36190/"><link rel="alternate" href="/atom.xml" title="NeuroSpider" type="application/atom+xml"><link rel="icon" href="/img/spider.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?8a05ae68beafa248466457b496a3d33e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/tools">Tools</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-07-14T02:30:00.000Z" title="2021/7/14 10:30:00">2021-07-14</time></span><span class="level-item"><a class="link-muted" href="/categories/cognitive/">认知神经</a><span> / </span><a class="link-muted" href="/categories/programming/">编程开发</a></span></div></div><h1 class="title is-3 is-size-4-mobile">ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！</h1><div class="content"><p>有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。</p>
+<p>因此，我们可以将mask映射到已有label的模板上，例如AAL、brodman等等。</p>
+<span id="more"></span>
+<p>这样就可以精确的输出这些ROI所涉及的所有区域名称。</p>
+<p>献上写好的代码</p>
+<p>copy之后保存即可。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[reflect , Map ]</span>=<span class="title">TBX_LabelAtlasByAnother</span><span class="params">(AtlasToBeLabel , AtlasWithLabel_atlas, AtlasWithLabel_label)</span> </span></span><br><span class="line"><span class="comment">% inpute atlas should be same size</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%AtlasToBeLabel  = &#x27;Reslice_shen_2mm_268_parcellation.nii&#x27;</span></span><br><span class="line"><span class="comment">%AtlasWithLabel_atlas  =&#x27;Reslice_AAL3v1_170.nii&#x27;;</span></span><br><span class="line"><span class="comment">%AtlasWithLabel_label  =&#x27;AAL3v1.nii.txt&#x27; ;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">v = spm_vol(AtlasWithLabel_atlas) ;</span><br><span class="line">labelAtlas = spm_read_vols(v);</span><br><span class="line"></span><br><span class="line">v = spm_vol(AtlasToBeLabel) ;</span><br><span class="line">atlastobelabel = spm_read_vols(v);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">NewAtlas = atlastobelabel;</span><br><span class="line">NewAtlas(logical(atlastobelabel)) = labelAtlas(logical(atlastobelabel));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">reflect = [ <span class="built_in">reshape</span>(atlastobelabel,[],<span class="number">1</span>) <span class="built_in">reshape</span>(NewAtlas ,[],<span class="number">1</span>)] ;</span><br><span class="line">reflect( sum(reflect,<span class="number">2</span>)==<span class="number">0</span>,:)=[];</span><br><span class="line"><span class="comment">% save aal3powerReflect.mat reflect</span></span><br><span class="line"></span><br><span class="line">labels = <span class="built_in">readtable</span>(AtlasWithLabel_label);</span><br><span class="line">labels = table2cell(labels);</span><br><span class="line">Map = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">max</span>(atlastobelabel,[],<span class="string">&#x27;all&#x27;</span>)</span><br><span class="line">    idx = atlastobelabel==<span class="built_in">i</span>;</span><br><span class="line">    lbidx = unique(NewAtlas(idx));</span><br><span class="line">    Map&#123;<span class="built_in">i</span>,<span class="number">1</span>&#125; = lbidx(lbidx~=<span class="number">0</span>);</span><br><span class="line">    Map&#123;<span class="built_in">i</span>,<span class="number">2</span>&#125; = labels(Map&#123;<span class="built_in">i</span>,<span class="number">1</span>&#125;,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%open Map</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="article-licensing box"><div class="licensing-title"><p>ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！</p><p><a href="https://gh.neurospider.cn/post/36190/">https://gh.neurospider.cn/post/36190/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>SuperSpider</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-07-14</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-05-04</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/matlab/">matlab</a><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/">认知神经</a></div><div class="sharethis-inline-share-buttons"></div><script src="neurospider.cn" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/32323/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">关于全脑信号回归的争议</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/49314/"><span class="level-item">心理学大数据测试与管理系统</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left  order-1"><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/spider.svg" alt="NeuroSpider" height="28"></a><p class="is-size-7"><span>&copy; 2022 SuperSpider</span>  </p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://s9.cnzz.com/z_stat.php?id=1280591999&amp;web_id=1280591999" async></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
