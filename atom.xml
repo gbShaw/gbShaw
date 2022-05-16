@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NeuroSpider</title>
+  <icon>https://gh.neurospider.cn/icon.png</icon>
+  <subtitle>A spider waves on neural network</subtitle>
+  <link href="https://gh.neurospider.cn/atom.xml" rel="self"/>
+  
+  <link href="https://gh.neurospider.cn/"/>
+  <updated>2022-05-10T08:35:25.186Z</updated>
+  <id>https://gh.neurospider.cn/</id>
+  
+  <author>
+    <name>SuperSpider</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模拟：fMRI中的GLM模型到底要不要加入所有刺激的onset和duration</title>
+    <link href="https://gh.neurospider.cn/post/58374/"/>
+    <id>https://gh.neurospider.cn/post/58374/</id>
+    <published>2022-05-10T07:37:10.000Z</published>
+    <updated>2022-05-10T08:35:25.186Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;直接用code说话，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight matlab&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>脑网络机器学习工具包NS_CPM</title>
+    <link href="https://gh.neurospider.cn/post/62271/"/>
+    <id>https://gh.neurospider.cn/post/62271/</id>
+    <published>2021-11-06T06:58:27.000Z</published>
+    <updated>2022-05-07T07:05:34.694Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;NS_CPM是本站开发的用于连接组信号进行机器学习分析的GUI工具包。NS_CPM使用一元线性模型、lasso回归或者相关向量回归(rvr)预测连续的行为变量，且搭建好了广泛使用的k-fold交叉验证框架和置换检验。NS_CPM可以输出重叠（Overlapping）的特征，用于特征泛化。NS_CPM提供简明的可视化操作，以及高自由度的脚本操作。其所有功能均支持并行运算，可以快速地在高性能服务器上开展数据分析工作，且已在MATLAB2010a及以上版本(WIN&amp;#x2F;LINUX)测试通过。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>BrainNetClass：一个新兴脑信号分类机器学习工具包</title>
+    <link href="https://gh.neurospider.cn/post/55795/"/>
+    <id>https://gh.neurospider.cn/post/55795/</id>
+    <published>2021-10-01T07:41:00.000Z</published>
+    <updated>2022-05-07T07:08:28.032Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;BrainNetClass是一个2020年发布的集网络构建、特征输出、特征选择、交叉验证和支持向量机(libsvm)分类一体的工具包。&lt;/p&gt;
+&lt;p&gt;BrainNetClass 确实如其初衷一样，非常的便捷！但值得注意的是， BrainNetClass 只能用于分类，而且是二分类，不支持多分类(GUI模式)，不支持回归（除非用batch模式大改）。但是对于做二元分类来说，比如区分疾病与健康被试，是很便捷的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="SWM" scheme="https://gh.neurospider.cn/tags/SWM/"/>
+    
+    <category term="机器学习" scheme="https://gh.neurospider.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>转录组-影像空间关联分析</title>
+    <link href="https://gh.neurospider.cn/post/34521/"/>
+    <id>https://gh.neurospider.cn/post/34521/</id>
+    <published>2021-09-27T11:42:00.000Z</published>
+    <updated>2022-05-04T03:10:39.798Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;背景知识&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;基因探针（probe）：是一段带有检测标记，且顺序已知的，与目的基因互补的核酸序列(DNA或RNA，单链)。&lt;/p&gt;
+&lt;p&gt;转录组测序：对细胞内所有转录产物（各种RNA）的集合进行测序（主要技术：RNA-Seq）。不同组织样本的转录产物不同，工程量浩大。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+    <category term="基因" scheme="https://gh.neurospider.cn/tags/%E5%9F%BA%E5%9B%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速生成大量测验报告</title>
+    <link href="https://gh.neurospider.cn/post/7159/"/>
+    <id>https://gh.neurospider.cn/post/7159/</id>
+    <published>2021-09-26T12:51:00.000Z</published>
+    <updated>2022-05-07T07:05:09.026Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;有时候我们会为了吸引被试参与实验，承诺给被试测验报告。当样本量很大的时候，这可能会涉及很大的工作量。&lt;/p&gt;
+&lt;p&gt;在这里，我提供了一种简易的方法。可以&lt;strong&gt;批量输出图文并茂的测验报告，同时可以在线查询&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;既然要简单，我们就不整数据库那一套了。这个方法主要是利用&lt;strong&gt;HTML格式丰富且易编辑&lt;/strong&gt;的特点&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/categories/visualization/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="网站" scheme="https://gh.neurospider.cn/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="网络" scheme="https://gh.neurospider.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打开黑匣——MRI数据是什么样的？</title>
+    <link href="https://gh.neurospider.cn/post/6134/"/>
+    <id>https://gh.neurospider.cn/post/6134/</id>
+    <published>2021-09-15T12:32:22.000Z</published>
+    <updated>2022-05-07T07:03:58.170Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;MRI数据是磁共振设备为大脑拍摄的“照片”，直观的理解它就是很多幅图片。&lt;/p&gt;
+&lt;p&gt;比如一张结构像：&lt;/p&gt;
+&lt;img src=&quot;/post/6134/image.png&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/categories/visualization/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROI 和 mask: 脑地图的操作——二维投射到三维</title>
+    <link href="https://gh.neurospider.cn/post/57393/"/>
+    <id>https://gh.neurospider.cn/post/57393/</id>
+    <published>2021-09-02T02:55:00.000Z</published>
+    <updated>2022-05-07T07:09:41.317Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;mask通常是一个二维或者三维的矩阵，它的存在是为了提取某些区域的信息，或者说将关注点聚焦到某些区域。三维的mask可以直接还原到原来的空间。二维的mask通常是做功能连接组分析时输出的结果，它表示选择了某些ROI，或者某些ROI通过了检验等等。为了可视化或者其它原因，可能需要将二维的mask投射回三维空间，输出三维mask。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么在线运行psychopy(个人服务器/pavlovia)</title>
+    <link href="https://gh.neurospider.cn/post/24628/"/>
+    <id>https://gh.neurospider.cn/post/24628/</id>
+    <published>2021-08-26T08:35:00.000Z</published>
+    <updated>2022-05-07T07:07:36.587Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;首先提供两个案例： &lt;a href=&quot;http://neurospider.cn/wp-content/uploads/psychopy/spresp-master/index.html&quot;&gt;&lt;strong&gt;简单反应时程序&lt;/strong&gt;&lt;/a&gt; &lt;a href=&quot;http://neurospider.cn/wp-content/uploads/psychopy/screenscale/index.html&quot;&gt;&lt;strong&gt;ScreenScale&lt;/strong&gt;&lt;/a&gt;(ps: 服务器到期，已失效)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Psychopy提供了一个非常棒的功能，就是online模式。有了这个功能，我们就可以&lt;strong&gt;在线收集行为数据&lt;/strong&gt;了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    <category term="网络技术" scheme="https://gh.neurospider.cn/categories/internet/"/>
+    
+    
+    <category term="在线实验" scheme="https://gh.neurospider.cn/tags/%E5%9C%A8%E7%BA%BF%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="实验程序" scheme="https://gh.neurospider.cn/tags/%E5%AE%9E%E9%AA%8C%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="网络技术" scheme="https://gh.neurospider.cn/tags/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打开黑匣——机器学习特征篇之从矩阵到向量到矩阵</title>
+    <link href="https://gh.neurospider.cn/post/20432/"/>
+    <id>https://gh.neurospider.cn/post/20432/</id>
+    <published>2021-08-25T13:18:00.000Z</published>
+    <updated>2022-05-07T07:02:59.740Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。&lt;/p&gt;
+&lt;p&gt;通常，特征以向量形式存在于分析过程中，即一行或者一列数据即为一个特征向量。而相关矩阵显然不满足这个要求，因此我们需要对它进行转换。有时候我们需要&lt;strong&gt;计算overlapping的边用于展示或者验证&lt;/strong&gt;，又需要将特征向量投射回原来的矩阵。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+    <category term="手搓数据" scheme="https://gh.neurospider.cn/tags/%E6%89%8B%E6%90%93%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于全脑信号回归的争议</title>
+    <link href="https://gh.neurospider.cn/post/32323/"/>
+    <id>https://gh.neurospider.cn/post/32323/</id>
+    <published>2021-08-02T11:49:23.000Z</published>
+    <updated>2022-05-04T03:10:39.716Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关键词：GSR；rsfmri；fMRI；预处理；preprocess&lt;/p&gt;
+&lt;p&gt;The global signal (GS) is a time course obtained by averaging resting-state time series over the entire brain (Desjardins et al., 2001; Macey et al., 2004).  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对GSR争论的看法：&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+    <category term="静息态" scheme="https://gh.neurospider.cn/tags/%E9%9D%99%E6%81%AF%E6%80%81/"/>
+    
+    <category term="预处理" scheme="https://gh.neurospider.cn/tags/%E9%A2%84%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROI 和 mask: 脑地图的操作——救急，我的mask没有labels！</title>
+    <link href="https://gh.neurospider.cn/post/36190/"/>
+    <id>https://gh.neurospider.cn/post/36190/</id>
+    <published>2021-07-14T02:30:00.000Z</published>
+    <updated>2022-05-04T03:10:39.684Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。&lt;/p&gt;
+&lt;p&gt;因此，我们可以将mask映射到已有label的模板上，例如AAL、brodman等等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>心理学大数据测试与管理系统</title>
+    <link href="https://gh.neurospider.cn/post/49314/"/>
+    <id>https://gh.neurospider.cn/post/49314/</id>
+    <published>2021-07-03T07:51:53.000Z</published>
+    <updated>2022-05-07T07:06:12.355Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/post/49314/image-1.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;很荣幸在我初进组的时候，得到老师的信任，让我来负责这样一个大型项目的行为数据收集工作。尽管遇到很多困难，但在大家的共同努力下，最终不负使命。离最初开始这个项目已经过去了两年，在这里，简单的记录一下部分工作内容。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="大数据" scheme="https://gh.neurospider.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="实验" scheme="https://gh.neurospider.cn/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="编程" scheme="https://gh.neurospider.cn/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么用psychotoolbox写一个贪吃蛇？</title>
+    <link href="https://gh.neurospider.cn/post/54493/"/>
+    <id>https://gh.neurospider.cn/post/54493/</id>
+    <published>2021-06-16T02:19:11.000Z</published>
+    <updated>2022-05-04T03:10:39.751Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;贪吃蛇是一个非常经典简单的游戏&lt;/p&gt;
+&lt;p&gt;小蛇 &amp;gt; 吃东西 &amp;gt; 变大蛇&lt;/p&gt;
+&lt;p&gt;那怎么变成计算机语言呢？&lt;/p&gt;
+&lt;p&gt;首先我们来理理这个逻辑&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="ptb" scheme="https://gh.neurospider.cn/tags/ptb/"/>
+    
+    <category term="贪吃蛇" scheme="https://gh.neurospider.cn/tags/%E8%B4%AA%E5%90%83%E8%9B%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么画边绑定图/circos图?</title>
+    <link href="https://gh.neurospider.cn/post/17118/"/>
+    <id>https://gh.neurospider.cn/post/17118/</id>
+    <published>2021-06-15T10:40:50.000Z</published>
+    <updated>2022-05-07T07:06:42.936Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/circos-mllt.png&quot;&gt;&lt;br&gt;▴ Complex rearrangements of MLL in acute leukemias. These images are part of a poster that accompanies the publication of the MLL recombinome (C. Meyer et al., Leukemia 23, 1490 (Aug, 2009).&lt;/p&gt;
+&lt;p&gt;边绑定图&amp;#x2F;circos图是用来描述节点和边的关系的一种图，可以通过增加外圈的方式呈现丰富的信息。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/categories/visualization/"/>
+    
+    
+    <category term="可视化" scheme="https://gh.neurospider.cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    <category term="circos" scheme="https://gh.neurospider.cn/tags/circos/"/>
+    
+    <category term="画图" scheme="https://gh.neurospider.cn/tags/%E7%94%BB%E5%9B%BE/"/>
+    
+    <category term="边绑定图" scheme="https://gh.neurospider.cn/tags/%E8%BE%B9%E7%BB%91%E5%AE%9A%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CPM-鲁棒的认知神经预测方法</title>
+    <link href="https://gh.neurospider.cn/post/59498/"/>
+    <id>https://gh.neurospider.cn/post/59498/</id>
+    <published>2021-05-07T08:07:00.000Z</published>
+    <updated>2022-05-04T03:10:39.649Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="机器学习" scheme="https://gh.neurospider.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="CPM" scheme="https://gh.neurospider.cn/tags/CPM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于E-prime的一些事</title>
+    <link href="https://gh.neurospider.cn/post/40235/"/>
+    <id>https://gh.neurospider.cn/post/40235/</id>
+    <published>2021-04-28T02:59:35.000Z</published>
+    <updated>2022-05-04T03:10:39.712Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Eprime-如何安装？&quot;&gt;&lt;a href=&quot;#Eprime-如何安装？&quot; class=&quot;headerlink&quot; title=&quot;Eprime 如何安装？&quot;&gt;&lt;/a&gt;Eprime 如何安装？&lt;/h2&gt;&lt;p&gt;Eprime1.0网上有已破解版本，直接安装即可，但不推荐安装1.0，对于中文和文件格式的支持不好，影响效率。&lt;/p&gt;
+&lt;p&gt;Eprime2.0直接安装官方包即可，输入试用序列号可以激活试用版，试用版有使用次数限制和license提醒，如何去除限制参见：&lt;/p&gt;
+&lt;p&gt;如何完美破解Eprime2.0？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="eprime" scheme="https://gh.neurospider.cn/tags/eprime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROI 和 mask: 脑地图的操作——提取</title>
+    <link href="https://gh.neurospider.cn/post/24812/"/>
+    <id>https://gh.neurospider.cn/post/24812/</id>
+    <published>2021-04-15T03:20:00.000Z</published>
+    <updated>2022-05-04T03:10:39.700Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ROI map就是在一个标准脑空间里的坐标，是我们做脑网络分析的常用手段。其数据是一个3D的矩阵，矩阵中大于0的值为ROI，当有多个ROI的时候，用不同的值来表示。&lt;/p&gt;
+&lt;p&gt;有时候我们不需要全部的ROI，比如，我们只想要默认网络的map，就可以在YEO或者其它的模板上抠出来。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab工具包安装：为啥我的会有报错/警告?</title>
+    <link href="https://gh.neurospider.cn/post/20793/"/>
+    <id>https://gh.neurospider.cn/post/20793/</id>
+    <published>2021-04-06T08:09:00.000Z</published>
+    <updated>2022-05-04T03:10:39.679Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;首先来看错误示范：解压压缩包—&amp;gt;主页—&amp;gt;设置路径—&amp;gt;添加并包含子文件夹—&amp;gt;保存，一气呵成！&lt;/p&gt;
+&lt;p&gt;对于小型工具包来说，这样做可能并不会出问题。&lt;/p&gt;
+&lt;p&gt;那为什么不推荐这样做呢?&lt;/p&gt;
+&lt;p&gt;MATLAB有一类特殊函数：&lt;strong&gt;私有函数&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/categories/cognitive/"/>
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="matlab" scheme="https://gh.neurospider.cn/tags/matlab/"/>
+    
+    <category term="认知神经" scheme="https://gh.neurospider.cn/tags/%E8%AE%A4%E7%9F%A5%E7%A5%9E%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何把网站打造成喜欢的模样?</title>
+    <link href="https://gh.neurospider.cn/post/27678/"/>
+    <id>https://gh.neurospider.cn/post/27678/</id>
+    <published>2021-02-22T02:34:41.000Z</published>
+    <updated>2022-05-04T03:10:39.727Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;主题&quot;&gt;&lt;a href=&quot;#主题&quot; class=&quot;headerlink&quot; title=&quot;主题&quot;&gt;&lt;/a&gt;主题&lt;/h2&gt;&lt;h2 id=&quot;修改链接样式&quot;&gt;&lt;a href=&quot;#修改链接样式&quot; class=&quot;headerlink&quot; title=&quot;修改链接样式&quot;&gt;&lt;/a&gt;修改链接样式&lt;/h2&gt;&lt;p&gt;wordpress后台-设置-固定链接，可以修改链接样式，但是可能遇到问题，比如修改后无法访问&lt;/p&gt;
+&lt;p&gt;通常发生在本地配置的情境下，由网页服务器的配置导致的&lt;/p&gt;
+&lt;p&gt;使用Apache服务器，则修改httpd.conf ，将网页根目录标记处的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络技术" scheme="https://gh.neurospider.cn/categories/internet/"/>
+    
+    
+    <category term="css" scheme="https://gh.neurospider.cn/tags/css/"/>
+    
+    <category term="网站" scheme="https://gh.neurospider.cn/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="网络" scheme="https://gh.neurospider.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESB-Easy batch for EEGLAB</title>
+    <link href="https://gh.neurospider.cn/post/18567/"/>
+    <id>https://gh.neurospider.cn/post/18567/</id>
+    <published>2021-02-17T05:56:28.000Z</published>
+    <updated>2022-05-07T07:18:37.996Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ESB能够快速批量的进行脑电数据处理，其工作原理和初衷类似于很流行的磁共振数据分析软件DAPBI，旨在提高数据分析的效率和一致性。ESB结合RECOR(雷旭)模块，能够快速的进行网络分析。与此同时加入了一些其他的模块以提高效率。ESB是我在学习脑电和matlab的时候编写的工具，目前已经经历了一些数据分析任务的考验。由于自己目前使用的主要研究方法转为磁共振，ESB已经多年未更新。希望今后有更好的想法，或者重新接触脑电的时候，再来完善它。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程开发" scheme="https://gh.neurospider.cn/categories/programming/"/>
+    
+    
+    <category term="eeg" scheme="https://gh.neurospider.cn/tags/eeg/"/>
+    
+    <category term="eeglab" scheme="https://gh.neurospider.cn/tags/eeglab/"/>
+    
+  </entry>
+  
+</feed>
