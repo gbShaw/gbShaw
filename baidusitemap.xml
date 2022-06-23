@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://neurospider.cn/tools/index.html</loc>
+    <lastmod>2022-06-23</lastmod>
+  </url>
+  <url>
     <loc>https://neurospider.cn/post/58374/</loc>
     <lastmod>2022-05-18</lastmod>
   </url>
@@ -43,10 +47,6 @@
   <url>
     <loc>https://neurospider.cn/post/20432/</loc>
     <lastmod>2022-05-07</lastmod>
-  </url>
-  <url>
-    <loc>https://neurospider.cn/tools/index.html</loc>
-    <lastmod>2022-05-04</lastmod>
   </url>
   <url>
     <loc>https://neurospider.cn/post/34521/</loc>
