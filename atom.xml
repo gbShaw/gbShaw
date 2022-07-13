@@ -6,7 +6,7 @@
   <link href="https://neurospider.cn/atom.xml" rel="self"/>
   
   <link href="https://neurospider.cn/"/>
-  <updated>2022-05-18T04:22:54.951Z</updated>
+  <updated>2022-07-12T07:04:46.938Z</updated>
   <id>https://neurospider.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Psychopy--如何用鼠标和键盘控制对象移动？</title>
+    <link href="https://neurospider.cn/post/50548/"/>
+    <id>https://neurospider.cn/post/50548/</id>
+    <published>2022-07-11T08:56:57.000Z</published>
+    <updated>2022-07-12T07:04:46.938Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;从简到难逐步完成各种实现方式&lt;/p&gt;
+&lt;h2 id=&quot;创建对象&quot;&gt;&lt;a href=&quot;#创建对象&quot; class=&quot;headerlink&quot; title=&quot;创建对象&quot;&gt;&lt;/a&gt;创建对象&lt;/h2&gt;&lt;p&gt;首先创建一个rutine，然后新建几个对象&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;code&lt;/li&gt;
+&lt;li&gt;polygon&lt;/li&gt;
+&lt;li&gt;mouse&lt;/li&gt;
+&lt;li&gt;key_resp&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="认知神经" scheme="https://neurospider.cn/categories/cognitive/"/>
+    
+    
+    <category term="psychopy" scheme="https://neurospider.cn/tags/psychopy/"/>
+    
+  </entry>
   
   <entry>
     <title>模拟：fMRI中的GLM模型到底要不要加入所有刺激的onset和duration</title>
@@ -479,27 +505,6 @@
     <category term="网站" scheme="https://neurospider.cn/tags/%E7%BD%91%E7%AB%99/"/>
     
     <category term="网络" scheme="https://neurospider.cn/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ESB-Easy batch for EEGLAB</title>
-    <link href="https://neurospider.cn/post/18567/"/>
-    <id>https://neurospider.cn/post/18567/</id>
-    <published>2021-02-17T05:56:28.000Z</published>
-    <updated>2022-05-07T07:18:37.996Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;ESB能够快速批量的进行脑电数据处理，其工作原理和初衷类似于很流行的磁共振数据分析软件DAPBI，旨在提高数据分析的效率和一致性。ESB结合RECOR(雷旭)模块，能够快速的进行网络分析。与此同时加入了一些其他的模块以提高效率。ESB是我在学习脑电和matlab的时候编写的工具，目前已经经历了一些数据分析任务的考验。由于自己目前使用的主要研究方法转为磁共振，ESB已经多年未更新。希望今后有更好的想法，或者重新接触脑电的时候，再来完善它。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="编程开发" scheme="https://neurospider.cn/categories/programming/"/>
-    
-    
-    <category term="eeg" scheme="https://neurospider.cn/tags/eeg/"/>
-    
-    <category term="eeglab" scheme="https://neurospider.cn/tags/eeglab/"/>
     
   </entry>
   
