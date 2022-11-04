@@ -6,7 +6,7 @@
   <link href="https://neurospider.cn/atom.xml" rel="self"/>
   
   <link href="https://neurospider.cn/"/>
-  <updated>2022-07-12T07:04:46.938Z</updated>
+  <updated>2022-07-12T07:05:10.000Z</updated>
   <id>https://neurospider.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://neurospider.cn/post/50548/"/>
     <id>https://neurospider.cn/post/50548/</id>
     <published>2022-07-11T08:56:57.000Z</published>
-    <updated>2022-07-12T07:04:46.938Z</updated>
+    <updated>2022-07-12T07:05:10.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;从简到难逐步完成各种实现方式&lt;/p&gt;
@@ -47,7 +47,7 @@
     <link href="https://neurospider.cn/post/58374/"/>
     <id>https://neurospider.cn/post/58374/</id>
     <published>2022-05-10T07:37:10.000Z</published>
-    <updated>2022-05-18T04:22:54.951Z</updated>
+    <updated>2022-05-18T04:22:54.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;直接用code说话，如下：&lt;/p&gt;</summary>
@@ -66,7 +66,7 @@
     <link href="https://neurospider.cn/post/62271/"/>
     <id>https://neurospider.cn/post/62271/</id>
     <published>2021-11-06T06:58:27.000Z</published>
-    <updated>2022-05-07T07:05:34.694Z</updated>
+    <updated>2022-05-07T07:05:34.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;NS_CPM是本站开发的用于连接组信号进行机器学习分析的GUI工具包。NS_CPM使用一元线性模型、lasso回归或者相关向量回归(rvr)预测连续的行为变量，且搭建好了广泛使用的k-fold交叉验证框架和置换检验。NS_CPM可以输出重叠（Overlapping）的特征，用于特征泛化。NS_CPM提供简明的可视化操作，以及高自由度的脚本操作。其所有功能均支持并行运算，可以快速地在高性能服务器上开展数据分析工作，且已在MATLAB2010a及以上版本(WIN&amp;#x2F;LINUX)测试通过。&lt;/p&gt;</summary>
@@ -85,7 +85,7 @@
     <link href="https://neurospider.cn/post/55795/"/>
     <id>https://neurospider.cn/post/55795/</id>
     <published>2021-10-01T07:41:00.000Z</published>
-    <updated>2022-05-07T07:08:28.032Z</updated>
+    <updated>2022-05-07T07:08:28.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;BrainNetClass是一个2020年发布的集网络构建、特征输出、特征选择、交叉验证和支持向量机(libsvm)分类一体的工具包。&lt;/p&gt;
@@ -111,7 +111,7 @@
     <link href="https://neurospider.cn/post/34521/"/>
     <id>https://neurospider.cn/post/34521/</id>
     <published>2021-09-27T11:42:00.000Z</published>
-    <updated>2022-05-04T03:10:39.798Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;背景知识&lt;/strong&gt;&lt;/p&gt;
@@ -134,7 +134,7 @@
     <link href="https://neurospider.cn/post/7159/"/>
     <id>https://neurospider.cn/post/7159/</id>
     <published>2021-09-26T12:51:00.000Z</published>
-    <updated>2022-05-07T07:05:09.026Z</updated>
+    <updated>2022-05-07T07:05:09.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;有时候我们会为了吸引被试参与实验，承诺给被试测验报告。当样本量很大的时候，这可能会涉及很大的工作量。&lt;/p&gt;
@@ -163,7 +163,7 @@
     <link href="https://neurospider.cn/post/6134/"/>
     <id>https://neurospider.cn/post/6134/</id>
     <published>2021-09-15T12:32:22.000Z</published>
-    <updated>2022-05-07T07:03:58.170Z</updated>
+    <updated>2022-05-07T07:03:58.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;MRI数据是磁共振设备为大脑拍摄的“照片”，直观的理解它就是很多幅图片。&lt;/p&gt;
@@ -192,7 +192,7 @@
     <link href="https://neurospider.cn/post/57393/"/>
     <id>https://neurospider.cn/post/57393/</id>
     <published>2021-09-02T02:55:00.000Z</published>
-    <updated>2022-05-07T07:09:41.317Z</updated>
+    <updated>2022-05-07T07:09:41.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;mask通常是一个二维或者三维的矩阵，它的存在是为了提取某些区域的信息，或者说将关注点聚焦到某些区域。三维的mask可以直接还原到原来的空间。二维的mask通常是做功能连接组分析时输出的结果，它表示选择了某些ROI，或者某些ROI通过了检验等等。为了可视化或者其它原因，可能需要将二维的mask投射回三维空间，输出三维mask。&lt;/p&gt;</summary>
@@ -215,7 +215,7 @@
     <link href="https://neurospider.cn/post/24628/"/>
     <id>https://neurospider.cn/post/24628/</id>
     <published>2021-08-26T08:35:00.000Z</published>
-    <updated>2022-05-07T07:07:36.587Z</updated>
+    <updated>2022-05-07T07:07:36.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;首先提供两个案例： &lt;a href=&quot;http://neurospider.cn/wp-content/uploads/psychopy/spresp-master/index.html&quot;&gt;&lt;strong&gt;简单反应时程序&lt;/strong&gt;&lt;/a&gt; &lt;a href=&quot;http://neurospider.cn/wp-content/uploads/psychopy/screenscale/index.html&quot;&gt;&lt;strong&gt;ScreenScale&lt;/strong&gt;&lt;/a&gt;(ps: 服务器到期，已失效)&lt;/p&gt;
@@ -242,7 +242,7 @@
     <link href="https://neurospider.cn/post/20432/"/>
     <id>https://neurospider.cn/post/20432/</id>
     <published>2021-08-25T13:18:00.000Z</published>
-    <updated>2022-05-07T07:02:59.740Z</updated>
+    <updated>2022-05-07T07:02:59.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;对于连接组机器学习来说，其特征（也可理解为自变量）就是功能连接矩阵，例如最常见的相关矩阵。&lt;/p&gt;
@@ -266,7 +266,7 @@
     <link href="https://neurospider.cn/post/32323/"/>
     <id>https://neurospider.cn/post/32323/</id>
     <published>2021-08-02T11:49:23.000Z</published>
-    <updated>2022-05-04T03:10:39.716Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;关键词：GSR；rsfmri；fMRI；预处理；preprocess&lt;/p&gt;
@@ -291,7 +291,7 @@
     <link href="https://neurospider.cn/post/36190/"/>
     <id>https://neurospider.cn/post/36190/</id>
     <published>2021-07-14T02:30:00.000Z</published>
-    <updated>2022-05-04T03:10:39.684Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;有时候，我们得到的mask并没有标明其ROI节点属于什么区域，例如power264模板。当然我们可以逐个按照坐标查询，也可以用各种viewer逐个的可视化查询。但这种操作也都存在一个问题，即不好处理当ROI跨越多个区域的情况。&lt;/p&gt;
@@ -315,7 +315,7 @@
     <link href="https://neurospider.cn/post/49314/"/>
     <id>https://neurospider.cn/post/49314/</id>
     <published>2021-07-03T07:51:53.000Z</published>
-    <updated>2022-05-07T07:06:12.355Z</updated>
+    <updated>2022-05-07T07:06:12.000Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/post/49314/image-1.png&quot; class=&quot;&quot;&gt;
@@ -340,7 +340,7 @@
     <link href="https://neurospider.cn/post/54493/"/>
     <id>https://neurospider.cn/post/54493/</id>
     <published>2021-06-16T02:19:11.000Z</published>
-    <updated>2022-05-04T03:10:39.751Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;贪吃蛇是一个非常经典简单的游戏&lt;/p&gt;
@@ -366,7 +366,7 @@
     <link href="https://neurospider.cn/post/17118/"/>
     <id>https://neurospider.cn/post/17118/</id>
     <published>2021-06-15T10:40:50.000Z</published>
-    <updated>2022-05-07T07:06:42.936Z</updated>
+    <updated>2022-05-07T07:06:42.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/circos-mllt.png&quot;&gt;&lt;br&gt;▴ Complex rearrangements of MLL in acute leukemias. These images are part of a poster that accompanies the publication of the MLL recombinome (C. Meyer et al., Leukemia 23, 1490 (Aug, 2009).&lt;/p&gt;
@@ -394,7 +394,7 @@
     <link href="https://neurospider.cn/post/59498/"/>
     <id>https://neurospider.cn/post/59498/</id>
     <published>2021-05-07T08:07:00.000Z</published>
-    <updated>2022-05-04T03:10:39.649Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;CPM (connectome-based predictive modeling) 是近些年流行的神经影像分析方法之一。研究者通常借助CPM方法，探究某些认知特征背后的神经连接组模式。关于CPM的具体细节在Xilin Shen于2017年在nature protocol上发表文章中有详细阐述。以下为该文章的部分总结，可以供初学者了解。&lt;/p&gt;</summary>
@@ -417,7 +417,7 @@
     <link href="https://neurospider.cn/post/40235/"/>
     <id>https://neurospider.cn/post/40235/</id>
     <published>2021-04-28T02:59:35.000Z</published>
-    <updated>2022-05-04T03:10:39.712Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Eprime-如何安装？&quot;&gt;&lt;a href=&quot;#Eprime-如何安装？&quot; class=&quot;headerlink&quot; title=&quot;Eprime 如何安装？&quot;&gt;&lt;/a&gt;Eprime 如何安装？&lt;/h2&gt;&lt;p&gt;Eprime1.0网上有已破解版本，直接安装即可，但不推荐安装1.0，对于中文和文件格式的支持不好，影响效率。&lt;/p&gt;
@@ -438,7 +438,7 @@
     <link href="https://neurospider.cn/post/24812/"/>
     <id>https://neurospider.cn/post/24812/</id>
     <published>2021-04-15T03:20:00.000Z</published>
-    <updated>2022-05-04T03:10:39.700Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;ROI map就是在一个标准脑空间里的坐标，是我们做脑网络分析的常用手段。其数据是一个3D的矩阵，矩阵中大于0的值为ROI，当有多个ROI的时候，用不同的值来表示。&lt;/p&gt;
@@ -462,7 +462,7 @@
     <link href="https://neurospider.cn/post/20793/"/>
     <id>https://neurospider.cn/post/20793/</id>
     <published>2021-04-06T08:09:00.000Z</published>
-    <updated>2022-05-04T03:10:39.679Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;首先来看错误示范：解压压缩包—&amp;gt;主页—&amp;gt;设置路径—&amp;gt;添加并包含子文件夹—&amp;gt;保存，一气呵成！&lt;/p&gt;
@@ -488,7 +488,7 @@
     <link href="https://neurospider.cn/post/27678/"/>
     <id>https://neurospider.cn/post/27678/</id>
     <published>2021-02-22T02:34:41.000Z</published>
-    <updated>2022-05-04T03:10:39.727Z</updated>
+    <updated>2022-05-04T03:10:39.000Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;主题&quot;&gt;&lt;a href=&quot;#主题&quot; class=&quot;headerlink&quot; title=&quot;主题&quot;&gt;&lt;/a&gt;主题&lt;/h2&gt;&lt;h2 id=&quot;修改链接样式&quot;&gt;&lt;a href=&quot;#修改链接样式&quot; class=&quot;headerlink&quot; title=&quot;修改链接样式&quot;&gt;&lt;/a&gt;修改链接样式&lt;/h2&gt;&lt;p&gt;wordpress后台-设置-固定链接，可以修改链接样式，但是可能遇到问题，比如修改后无法访问&lt;/p&gt;
