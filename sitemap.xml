@@ -155,15 +155,6 @@
   </url>
   
   <url>
-    <loc>https://neurospider.cn/post/36190/</loc>
-    
-    <lastmod>2022-05-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://neurospider.cn/post/20793/</loc>
     
     <lastmod>2022-05-04</lastmod>
@@ -173,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://neurospider.cn/post/24812/</loc>
+    <loc>https://neurospider.cn/post/36190/</loc>
     
     <lastmod>2022-05-04</lastmod>
     
@@ -183,6 +174,15 @@
   
   <url>
     <loc>https://neurospider.cn/post/40235/</loc>
+    
+    <lastmod>2022-05-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://neurospider.cn/post/24812/</loc>
     
     <lastmod>2022-05-04</lastmod>
     
@@ -497,14 +497,14 @@
   </url>
   
   <url>
-    <loc>https://neurospider.cn/tags/%E6%89%8B%E6%90%93%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://neurospider.cn/tags/%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2023-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://neurospider.cn/tags/%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99/</loc>
+    <loc>https://neurospider.cn/tags/%E6%89%8B%E6%90%93%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2023-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
