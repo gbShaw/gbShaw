@@ -66,7 +66,7 @@
     <link href="https://neurospider.cn/post/62271/"/>
     <id>https://neurospider.cn/post/62271/</id>
     <published>2021-11-06T06:58:27.000Z</published>
-    <updated>2022-05-07T07:05:34.000Z</updated>
+    <updated>2024-12-10T08:10:34.246Z</updated>
     
     
     <summary type="html">&lt;p&gt;NS_CPM是本站开发的用于连接组信号进行机器学习分析的GUI工具包。NS_CPM使用一元线性模型、lasso回归或者相关向量回归(rvr)预测连续的行为变量，且搭建好了广泛使用的k-fold交叉验证框架和置换检验。NS_CPM可以输出重叠（Overlapping）的特征，用于特征泛化。NS_CPM提供简明的可视化操作，以及高自由度的脚本操作。其所有功能均支持并行运算，可以快速地在高性能服务器上开展数据分析工作，且已在MATLAB2010a及以上版本(WIN&amp;#x2F;LINUX)测试通过。&lt;/p&gt;</summary>

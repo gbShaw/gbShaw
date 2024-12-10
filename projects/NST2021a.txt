@@ -1,0 +1,3 @@
+@=@version: 1.0.31_beta
+@=@message: 
+@=@weburl: https://github.com/gbShaw/NS_CPM
